@@ -1,0 +1,282 @@
+/* Общие стили и переменные */
+:root {
+    /* Шрифты */
+    --primary-font: 'Craftwork Grotesk', sans-serif;
+    --secondary-font: 'IvyPresto Display', serif;
+    
+    /* Цвета */
+    --text-color: #000000;
+    --border-color: #000000;
+    
+    /* Размеры */
+    --container-padding: clamp(1rem, 5vw, 5rem);
+    --section-gap: clamp(3rem, 8vw, 8rem);
+    --content-gap: clamp(2rem, 4vw, 4rem);
+    --animation-gap: clamp(1.5rem, 3vw, 3rem);
+    
+    /* Анимация */
+    --animation-width: min(100%, 700px);
+    --animation-height: 452px;
+    --animation-ratio: 0.6457; /* 452/700 */
+    
+    /* Точки перелома */
+    --mobile: 768px;
+    --tablet: 992px;
+    --desktop: 1200px;
+}
+
+/* Базовый сброс */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    background: #FFFFFF;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Контейнер */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Шапка (неизменная) */
+.header {
+    width: 100%;
+    height: clamp(80px, 8vw, 143px);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14.5px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--container-padding);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.tasks {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: clamp(16px, 2vw, 24px);
+    font-weight: 400;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.tasks .arrow {
+    width: clamp(30px, 3vw, 43.5px);
+    height: auto;
+}
+
+.page-numbers {
+    display: flex;
+    gap: clamp(15px, 2vw, 33px);
+}
+
+.page-number {
+    font-size: clamp(16px, 2vw, 24px);
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Основной контент */
+.content {
+    padding: var(--container-padding);
+    padding-top: calc(clamp(80px, 8vw, 143px) + 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
+}
+
+/* Заголовки секций */
+.section-title {
+    font-size: clamp(2.5rem, 6vw, 90px);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Секция с заданием */
+.task-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+    width: 100%;
+}
+
+.task-content {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+
+}
+
+.animation-container {
+    width: 100%;
+    display: flex;
+    
+    gap: var(--animation-gap);
+}
+
+.animation-wrapper {
+    padding-bottom: 24.57%;
+    width: 100%;
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.fullsize-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.additional-text {
+    width: 100%;
+    margin-top: 1rem; 
+    font-size: clamp(1rem, 1.5vw, 20px);
+}
+
+/* Секция впечатлений */
+.impressions-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-gap);
+}
+
+.impressions-content {
+    width: 100%;
+    max-width: calc(2 * var(--animation-width) + var(--animation-gap));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.description-left,
+.description-right {
+    font-size: clamp(1rem, 1.5vw, 20px);
+    line-height: 1.5;
+}
+
+/* Футер */
+.footer-section {
+    margin-top: var(--section-gap);
+    padding: 0 var(--container-padding);
+}
+
+.footer-line {
+    width: 100%;
+    max-width: 1360px;
+    height: 0px;
+    border-top: 1px solid var(--border-color);
+    margin: 0 auto;
+}
+
+.footer-username .arrow {
+    width: clamp(30px, 3vw, 43.5px);
+    height: auto;
+    margin-right: -0.50px;
+}
+
+.footer {
+    width: 100%;
+    font-size: clamp(16px, 2vw, 24px);
+    max-width: 900px;
+    height: auto;
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.footer-username {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.footer-link {
+    font-size: clamp(1rem, 2vw, 20px);
+    text-transform: capitalize;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .animation-container {
+        flex-wrap: wrap;
+    }
+    
+    .animation-wrapper {
+        width: 100%;
+        max-width: var(--animation-width);
+        height: calc(var(--animation-width) * var(--animation-ratio));
+    }
+}
+
+@media (max-width: 992px) {
+    .impressions-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem var(--container-padding);
+    }
+    
+    .animation-wrapper {
+        height: calc(100vw * var(--animation-ratio));
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .animation-container {
+        gap: 1.5rem;
+    }
+}
